@@ -1,38 +1,63 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
-// Импортируем изображения
-import img1 from '../assets/images/1.svg';
-import img2 from '../assets/images/2.svg';
-import img3 from '../assets/images/3.svg';
-import img4 from '../assets/images/4.svg';
-import img5 from '../assets/images/5.svg';
-import img6 from '../assets/images/6.svg';
+import img1 from '../assets/images/1.png';
+import img2 from '../assets/images/2.png';
+import img3 from '../assets/images/3.png';
+import img4 from '../assets/images/4.png';
+import img5 from '../assets/images/5.png';
+import img6 from '../assets/images/6.png';
 
-// Данные карточек
 const cards = [
-  { id: 1, img: img1, title: 'Taxes & Efficiency', subtitle: 'Business' },
-  { id: 2, img: img2, title: 'Investment Banking', subtitle: 'Service' },
-  { id: 3, img: img3, title: 'Financial Plan', subtitle: 'Planning' },
-  { id: 4, img: img4, title: 'Audit & Evaluation', subtitle: 'Review' },
-  { id: 5, img: img5, title: 'Consulting', subtitle: 'Advice' },
-  { id: 6, img: img6, title: 'Strategy', subtitle: 'Development' },
+  {
+    id: 1,
+    img: img1,
+    title: 'Taxes & Efficiency',
+    subtitle: 'Business',
+  },
+  {
+    id: 2,
+    img: img2,
+    title: 'Investment Banking',
+    subtitle: 'Service',
+  },
+  {
+    id: 3,
+    img: img3,
+    title: 'Financial Plan',
+    subtitle: 'Planning',
+  },
+  {
+    id: 4,
+    img: img4,
+    title: 'Audit & Evaluation',
+    subtitle: 'Review',
+  },
+  {
+    id: 5,
+    img: img5,
+    title: 'Consulting',
+    subtitle: 'Advice',
+  },
+  {
+    id: 6,
+    img: img6,
+    title: 'Strategy',
+    subtitle: 'Development',
+  },
 ];
 
-// Реактивное определение мобильного режима
 const isMobile = ref(window.innerWidth <= 800);
 
-// Функция обновления состояния
 const checkMobile = () => {
   isMobile.value = window.innerWidth <= 800;
 };
 
-// Следим за изменением размера окна
 onMounted(() => {
   checkMobile();
   window.addEventListener('resize', checkMobile);
@@ -45,7 +70,6 @@ onUnmounted(() => {
 
 <template>
   <div class="card-gallery">
-    <!-- Swiper-слайдер (только на мобильных) -->
     <swiper
       v-if="isMobile"
       :modules="[Navigation, Pagination]"
@@ -68,7 +92,6 @@ onUnmounted(() => {
       </swiper-slide>
     </swiper>
 
-    <!-- Сетка карточек (на десктопе) -->
     <div v-else class="card-gallery__wrapper">
       <div v-for="card in cards" :key="card.id" class="card-gallery__item">
         <img :src="card.img" :alt="card.title" />
@@ -175,12 +198,11 @@ onUnmounted(() => {
 
     button {
       opacity: 1;
-      transform: translateY(0); // ✅ Исправлено: встаёт на своё место
+      transform: translateY(0);
     }
   }
 }
 
-// Стили для Swiper
 .swiper-mobile {
   padding: 0 1rem;
 
