@@ -1,33 +1,50 @@
-# Inline
+## Как запустить локально
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+Склонируй репозиторий:
 
 ```sh
-yarn
+git clone https://github.com/iaraski/Inline.git
 ```
 
-### Compile and Hot-Reload for Development
+Перейди в папку проекта:
+
+```sh
+cd Inline
+```
+
+## Установи зависимости:
+
+```sh
+yarn install
+```
+
+## Запусти сервер разработки:
 
 ```sh
 yarn dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Приложение будет доступно по адресу: http://localhost:5173
+
+## Для сборки проекта в продакшен:
 
 ```sh
 yarn build
 ```
+
+Собранные файлы появятся в папке docs/.
+
+## Деплой на GitHub Pages
+
+Проект опубликован через GitHub Pages напрямую из ветки main:
+
+Перейди в настройки репозитория (Settings → Pages). В разделе Source выбери: Branch: main Folder: /
+(docs) Нажми Save. Сайт доступен по ссылке: https://iaraski.github.io/Inline
+
+## В файле vite.config.ts должно быть
+
+base: './',
+
+## Для того чтобы работал роутинг необходимо чтобы в router/index.ts было установлено следующее
+
+history: createWebHistory('/Inline/'),
