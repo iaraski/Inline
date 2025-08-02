@@ -4,7 +4,6 @@ import { RouterLink } from 'vue-router';
 
 <template>
   <nav class="navigation">
-    <!-- Обёртка для скролла на мобильных -->
     <div class="navigation__wrapper">
       <RouterLink to="/">All</RouterLink>
       <RouterLink to="/TaxesEfficiency">Taxes & Efficiency</RouterLink>
@@ -22,7 +21,7 @@ import { RouterLink } from 'vue-router';
   border-radius: 30px;
   width: 85%;
   margin: 1rem auto 4.625rem auto;
-  overflow: hidden; // скрываем "выход" за границы при скролле
+  overflow: hidden;
 }
 
 .navigation__wrapper {
@@ -31,16 +30,14 @@ import { RouterLink } from 'vue-router';
   height: 100%;
   align-items: center;
 
-  // Мобильная версия: горизонтальный скролл
   @media (max-width: 800px) {
-    flex-wrap: nowrap; // не переносим на новую строку
-    overflow-x: auto; // прокрутка по горизонтали
+    flex-wrap: nowrap;
+    overflow-x: auto;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; // плавность на iOS
+    -webkit-overflow-scrolling: touch;
     gap: 1rem;
     padding: 0 1rem;
 
-    // Скрываем полосу прокрутки (опционально)
     &::-webkit-scrollbar {
       display: none;
     }
@@ -54,7 +51,7 @@ import { RouterLink } from 'vue-router';
     align-items: center;
     color: white;
     font-size: 1.56rem;
-    white-space: nowrap; // не переносим текст
+    white-space: nowrap;
     padding: 0 1rem;
     position: relative;
 
@@ -62,7 +59,6 @@ import { RouterLink } from 'vue-router';
       color: #ffcc4a;
     }
 
-    // Активная ссылка — с линией снизу
     &.router-link-exact-active {
       color: #ffcc4a;
 
